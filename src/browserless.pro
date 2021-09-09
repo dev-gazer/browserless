@@ -25,7 +25,8 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
-RESOURCES += qdarkstyle/dark/style.qrc
+RESOURCES += qdarkstyle/dark/style.qrc \
+            loveless.jpg
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,13 +1,16 @@
 #include "MainWindow/mainwindow.h"
-
+#include <QTextStream>
+#include <QFile>
+#include <QDataStream>
 #include <QApplication>
 #include <QWebView>
-#include <QFile>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
     QFile f(":qdarkstyle/dark/style.qss");
+    a.setWindowIcon(QIcon(":loveless.jpg"));
     if (!f.exists())   {
             printf("Unable to set stylesheet, file not found\n");
         }
