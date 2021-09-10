@@ -1,6 +1,8 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets webkitwidgets
+greaterThan(QT_MAJOR_VERSION, 4):
+
+QT += widgets webkitwidgets webenginewidgets
 
 CONFIG += c++11
 
@@ -26,7 +28,8 @@ FORMS += \
     mainwindow.ui
 
 RESOURCES += qdarkstyle/dark/style.qrc \
-            loveless.jpg
+            loveless.jpg \
+            qdarkstyle/icons/
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

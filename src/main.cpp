@@ -4,6 +4,7 @@
 #include <QDataStream>
 #include <QApplication>
 #include <QWebView>
+#include <QtWebEngineWidgets/QWebEngineView>
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +21,7 @@ int main(int argc, char *argv[])
             qApp->setStyleSheet(ts.readAll());
         }
     MainWindow w;
+    w.isMaximized();
     w.show();
     return a.exec();
 }

@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle("browserless");
+    ui->lineEdit->setText("https://github.com/dev-gazer/browserless");
+    ui->webEngineView->load(ui->lineEdit->text());
 }
 
 MainWindow::~MainWindow()
@@ -16,7 +18,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->webView->load(ui->lineEdit->text());
+    ui->webEngineView->load(ui->lineEdit->text());
 }
 
 void MainWindow::on_lineEdit_returnPressed()
@@ -24,17 +26,38 @@ void MainWindow::on_lineEdit_returnPressed()
     on_pushButton_clicked();
 }
 
-void MainWindow::on_webView_loadStarted()
+void MainWindow::on_webEngineView_loadStarted()
 {
     ui->statusbar->showMessage("Gazing...");
 }
 
-void MainWindow::on_webView_loadFinished(bool arg1)
+void MainWindow::on_webEngineView_loadFinished(bool arg1)
 {
     if(arg1){
         ui->statusbar->showMessage("Gazed!");
-        ui->lineEdit->setText(ui->webView->url().toString());
+        ui->lineEdit->setText(ui->webEngineView->url().toString());
     }else{
         ui->statusbar->showMessage("Failed to gaze. Too bad.");
     }
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->webEngineView->back();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    ui->webEngineView->forward();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    ui->webEngineView->reload();
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    ui->lineEdit->setText("https://github.com/dev-gazer/browserless");
+    ui->webEngineView->load(ui->lineEdit->text());
 }
